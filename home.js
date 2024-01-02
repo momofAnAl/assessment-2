@@ -21,7 +21,10 @@
     'Welcome back, Andrew'
 */
 
-//CODE HERE
+const greetUser = (username) => {
+    return 'Welcome back, ' + username;
+};
+console.log(greetUser('Peter'));
 
 
 
@@ -49,9 +52,15 @@
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
-//CODE HERE
-
-
+const canWeDeliver = (zipCode) => {
+    for (const zip of deliveryAreaZipCodes) {
+        if (zip === zipCode) {
+            return "You're in our delivery zone!";
+        }
+    }
+    return "Sorry, we can't deliver to that address!";
+};
+console.log(canWeDeliver(85203));
 
 /* 
     Problem 2 Continued
@@ -70,8 +79,14 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
     Name your new function `canWeDeliverTwo`.
 */
 
-// CODE HERE
-
+const canWeDeliverTwo = (zipCode) => {
+    if (deliveryAreaZipCodes.includes(zipCode) === true) {
+        return "You're in our delivery zone!";
+    } else {
+        return "Sorry, we can't deliver to that address!";
+    }    
+};
+console.log(canWeDeliverTwo(85203));
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -109,7 +124,8 @@ const deals = [
     in the handout for the "Intro to JS" lecture)
 */
 
-//CODE HERE
+deals[0].title = deals[0].title.replace('15','10');
+console.log(deals);
 
 
 
@@ -122,4 +138,5 @@ const deals = [
     to replace the word March with April.
 */
 
-//CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April');
+console.log(deals);
