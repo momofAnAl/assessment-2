@@ -30,7 +30,14 @@
     'kids'
 */
 
-//CODE HERE
+const pizza = {
+    name: 'Pacific Vegie',
+    price: 7,
+    category: 'vegan',
+    popularity: 100,
+    rating: 5,
+    tag: ['gluten-free', 'non-dairy', 'hand-made pan', 'kids size'],
+};
 
 
 
@@ -42,7 +49,7 @@
     Use dot notation to access the value.
 */
 
-//CODE HERE
+console.log(pizza.popularity);
 
 
 /*
@@ -52,7 +59,7 @@
     get the value.
 */
 
-//CODE HERE
+console.log(pizza.tag[1]);
 
 
 /*
@@ -62,7 +69,10 @@
     Print the value of your new price variable.
 */
 
-//CODE HERE
+const {price} = pizza;
+console.log(price);
+
+
 
 
 /*
@@ -72,13 +82,14 @@
     Print the value of your category variable.
 */
 
-//CODE HERE
+const {category} = pizza;
+console.log(category);
 
 
 //////////////////PROBLEM 3////////////////////
 /*
     Create an array with 4 objects in it.
-    The objects should mimic the `pizza` object.
+    The objects should mimic the `pizza` object
     Call the array `foodArr`.
 
     Make sure that they have slightly different
@@ -87,7 +98,12 @@
     data in some functions that you'll write.
 */
 
-//CODE HERE
+foodArr = [
+    {name: 'Pacific Veggie', price: 17, category: 'vegan', popularity: 100, rating: 8, tag: ['gluten-free', 'non-dairy', 'hand-made pan', 'kids size']},
+    {name: 'Italian', price: 10, category: 'noodle', popularity: 90, rating: 4.5, tag: ['gluten-free', 'tomatoes', 'hand-made pan', 'kids size']},
+    {name: 'Hawaiian', price: 15, category: 'snacks', popularity: 100, rating: 5, tag: ['gluten-free', 'toasted', 'eggs and ham', 'cheese']},
+    {name: 'American', price: 8, category: 'snacks', popularity: 80, rating: 6, tag: ['gluten-free', 'non-dairy', 'cheese', 'cucumber']},
+];
 
 
 
@@ -107,7 +123,11 @@
     your food objects has.
 */
 
-//CODE HERE
+const filterFoods = (foods) => {
+    const hasTag = (food) => food['tag'].includes('hand-made pan'); 
+    return foods.filter(hasTag);
+};
+console.log(filterFoods(foodArr));
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
@@ -147,7 +167,11 @@
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+const filterByProperty = (property, number) => {
+    const hasTag = (food) => food[property] > number; 
+    return foodArr.filter(hasTag);
+};
+
 
 
 /*
@@ -157,4 +181,5 @@
     You'll have to console.log to see the filtered array
 */
 
-//CODE HERE
+console.log(filterByProperty('price',12));
+console.log(filterByProperty('rating',5));
