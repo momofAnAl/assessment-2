@@ -32,8 +32,9 @@ const cart = [
         price: 7.99
     }
 ]
-
-//CODE HERE
+const initialValue = 0;
+const summedPrice = cart.reduce((runningTotal, curValue) => runningTotal + curValue.price, initialValue);
+console.log(summedPrice);
 
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
 
@@ -53,8 +54,10 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
-//CODE HERE
-
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    return (cartTotal * (1 + tax)) - couponValue;
+}
+console.log(calcFinalPrice(100, 15, .06));
 
 
 //////////////////PROBLEM 3////////////////////
@@ -78,7 +81,14 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    Customer object has the following properties:
+        - name (string): example "John" 
+        - order (number): example 123
+        - phone number (string of digits): example '406-000-009'
+        - order items (array of objects, each object with two properties: item (string) and quantity (number)): because restaurant needs to know what customer order and in what quantities 
+        - payment detail (object with two properties: payment type (string) and payment info (object)): because restaurant needs info about payment type (cash or credit card) and associated detail (i.e. card number)
+        - eat option (string): because restaurant needs to know whether customer eats in or take out
+
 
 */
 
@@ -87,4 +97,11 @@ const cart = [
     guidelines.
 */
 
-//CODE HERE
+const customerObjects = {
+    name: "Anh Tran",
+    order: "123456" ,
+    phone: "406-000-0009" ,
+    items: [{'pizza': 1}, {'drink': 2}],
+    payment: {type:'credit_card', detail: {'cc_number': 123456, 'exp_date': '10/2025'}},
+    eat_option: 'take-out'
+}
